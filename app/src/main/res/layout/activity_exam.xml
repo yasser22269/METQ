@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorPrimary"
+    tools:context=".exam">
+
+
+    <TextView
+        android:id="@+id/card_quetion"
+        android:layout_width="366dp"
+        android:layout_height="128dp"
+        android:layout_marginTop="52dp"
+        android:background="@color/colorSecondary"
+        android:gravity="center"
+        android:text="TextView"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/answer1"
+        android:layout_width="366dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="28dp"
+        android:background="@color/colorSecondary"
+        android:cursorVisible="true"
+        android:gravity="center"
+        android:text="TextView"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/card_quetion"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/answer2"
+        android:layout_width="366dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="28dp"
+        android:background="@color/colorSecondary"
+        android:gravity="center"
+        android:text="TextView"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/answer1"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/answer3"
+        android:layout_width="366dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="28dp"
+        android:background="@color/colorSecondary"
+        android:gravity="center"
+        android:text="TextView"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/answer2"
+        tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/answer4"
+        android:layout_width="366dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="28dp"
+        android:background="@color/colorSecondary"
+        android:gravity="center"
+        android:text="TextView"
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.538"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/answer3"
+        tools:ignore="MissingConstraints" />
+
+<!--    <TextView
+        android:id="@+id/answer"
+        android:layout_width="180dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="60dp"
+        android:background="@color/colorAccent"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:text="Next"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/answer4"
+        tools:ignore="MissingConstraints" />
+-->
+    <Button
+        android:id="@+id/answer"
+        android:layout_width="180dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="60dp"
+        app:background="@color/colorAccent"
+        app:backgroundTint="@color/colorAccent"
+        android:gravity="center|center_horizontal|center_vertical"
+        android:hapticFeedbackEnabled="false"
+        android:text="Next"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/answer4" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
