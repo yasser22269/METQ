@@ -38,6 +38,7 @@ public class exam extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 hoverClick(answer2);
+                
             }
 
         });
