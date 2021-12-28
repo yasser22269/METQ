@@ -11,18 +11,19 @@ import java.util.ArrayList;
 
 public class login extends AppCompatActivity {
     private Button button1;
-    public static ArrayList<ExamClass> listQuetions;
+    public static ArrayList<ExamClass> listQuestions;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        listQuetions = new ArrayList<>();
-        listQuetions.add(new ExamClass("Quetion 1","correctAnser1","2","3","4","correctAnser1"));
-        listQuetions.add(new ExamClass("Quetion 2","correctAnser1","2","3","4","correctAnser1"));
-        listQuetions.add(new ExamClass("Quetion 3","correctAnser1","2","3","4","correctAnser1"));
-        listQuetions.add(new ExamClass("Quetion 4","correctAnser1","2","3","4","correctAnser1"));
-        listQuetions.add(new ExamClass("Quetion 5","correctAnser1","2","3","4","correctAnser1"));
+        listQuestions = new ArrayList<>();
+        listQuestions.add(new ExamClass("Question 1","correctAnser1","2","3","4",
+                "correctAnser1"));
+        listQuestions.add(new ExamClass("Question 2","correctAnser1","2","3","4","correctAnser1"));
+        listQuestions.add(new ExamClass("Question 3","correctAnser1","2","3","4","correctAnser1"));
+        listQuestions.add(new ExamClass("Question 4","correctAnser1","2","3","4","correctAnser1"));
+        listQuestions.add(new ExamClass("Question 5","correctAnser1","2","3","4","correctAnser1"));
 
 
 

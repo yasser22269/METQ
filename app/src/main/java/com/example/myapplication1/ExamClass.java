@@ -1,15 +1,15 @@
 package com.example.myapplication1;
 
 public class ExamClass {
-    String Quetion;
+    String Question;
     String Answer1;
     String Answer2;
     String Answer3;
     String Answer4;
     String correctAnswer;
 
-    public ExamClass(String quetion, String answer1, String answer2, String answer3, String answer4, String correctAnswer) {
-        Quetion = quetion;
+    public ExamClass(String question, String answer1, String answer2, String answer3, String answer4, String correctAnswer) {
+        Question = question;
         Answer1 = answer1;
         Answer2 = answer2;
         Answer3 = answer3;
@@ -17,12 +17,12 @@ public class ExamClass {
         this.correctAnswer = correctAnswer;
     }
 
-    public String getQuetion() {
-        return Quetion;
+    public String getQuestion() {
+        return Question;
     }
 
-    public void setQuetion(String quetion) {
-        Quetion = quetion;
+    public void setQuestion(String question) {
+        Question = question;
     }
 
     public String getAnswer1() {
