@@ -8,14 +8,7 @@ public class ExamClass {
     String Answer4;
     String correctAnswer;
 
-    public ExamClass(String question, String answer1, String answer2, String answer3, String answer4, String correctAnswer) {
-        Question = question;
-        Answer1 = answer1;
-        Answer2 = answer2;
-        Answer3 = answer3;
-        Answer4 = answer4;
-        this.correctAnswer = correctAnswer;
-    }
+    public  ExamClass(){}
 
     public String getQuestion() {
         return Question;

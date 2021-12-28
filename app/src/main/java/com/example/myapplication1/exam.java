@@ -4,10 +4,6 @@ import static com.example.myapplication1.login.listQuestions;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
-import androidx.core.content.ContextCompat;
-
-import android.annotation.SuppressLint;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,7 +14,6 @@ import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.List;
 
 public class exam extends AppCompatActivity {
      ArrayList<ExamClass> AllQuestionslist  ;
@@ -26,7 +21,6 @@ public class exam extends AppCompatActivity {
         int index=0,AnswerCorrect=0;
         String AnswerString,select;
         TextView  card_question,answer1, answer2,answer3,answer4;
-       // CardView  card1,card2,card3,card4;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,9 +47,7 @@ public class exam extends AppCompatActivity {
 
                     if(listQuestions.size()-1 == index){
                         new AlertDialog.Builder(exam.this)
-                                //.setTitle("result")
                                 .setMessage("result = " +AnswerCorrect)
-
                                 .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int which) {
                                         Intent intent = new Intent(exam.this,login.class);
@@ -67,7 +59,7 @@ public class exam extends AppCompatActivity {
                     }else{
                         index ++;
                         examClass = listQuestions.get(index);
-                        clearChack();
+                        clearCheck();
                         setAllData();
 
                     }
@@ -121,14 +113,6 @@ public class exam extends AppCompatActivity {
     }
 
     private void hoverClick(TextView answer) {
-
-              //  List<TextView> l = null;
-
-//                l.add(answer4);
-//                l.add(answer1);
-//                l.add(answer3);
-//                l.add(answer2);
-               // for (int i = 0; i < 4; i++) {
         if (answer== answer1) {
                 answer1.setBackgroundResource(R.color.colorAccent);
                 answer1.setTextColor(getResources().getColor(R.color.white));
@@ -136,7 +120,6 @@ public class exam extends AppCompatActivity {
                 answer1.setBackgroundResource(R.color.colorSecondary);
                 answer1.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
         }
-
         if (answer== answer2) {
             answer2.setBackgroundResource(R.color.colorAccent);
             answer2.setTextColor(getResources().getColor(R.color.white));
@@ -144,7 +127,6 @@ public class exam extends AppCompatActivity {
             answer2.setBackgroundResource(R.color.colorSecondary);
             answer2.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
         }
-
         if (answer== answer3) {
             answer3.setBackgroundResource(R.color.colorAccent);
             answer3.setTextColor(getResources().getColor(R.color.white));
@@ -172,31 +154,26 @@ public class exam extends AppCompatActivity {
         AnswerString = examClass.getCorrectAnswer();
         select =null;
     }
+
     private boolean correctAnswerCount(String Answer,String AnswerString){
-        if(AnswerString == Answer){
+        if(AnswerString.equals(Answer)){
             return true;
         }
         return false;
-
     }
     private void Hooks() {
         card_question = findViewById(R.id.card_question);
-
         // set answer 1 with its id
         answer1 = findViewById(R.id.answer1);
-
         // set answer 2 with its id
         answer2 = findViewById(R.id.answer2);
-
         // set answer 3 with its id
         answer3 = findViewById(R.id.answer3);
-
         // set answer 4 with its id
         answer4 = findViewById(R.id.answer4);
-
     }
 
-    private void clearChack() {
+    private void clearCheck() {
         answer1.setBackgroundResource(R.color.colorSecondary);
         answer1.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
         answer2.setBackgroundResource(R.color.colorSecondary);

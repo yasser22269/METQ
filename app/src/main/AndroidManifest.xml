@@ -13,9 +13,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication1">
         <activity
-            android:name=".result"
-            android:exported="false" />
-        <activity
             android:name=".exam"
             android:exported="false" />
         <activity
