@@ -1,6 +1,6 @@
-package com.example.myapplication1;
+package com.example.myapplication1.controllers;
 
-import static com.example.myapplication1.loading.listUsers;
+import static com.example.myapplication1.controllers.loading.listUsers;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,6 +12,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.myapplication1.R;
+import com.example.myapplication1.models.Question;
+import com.example.myapplication1.models.User;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -23,7 +26,7 @@ import java.util.ArrayList;
 public class login extends AppCompatActivity {
     private Button button1;
     private EditText id, password;
-    public static ArrayList<ExamClass> listQuestions;
+    public static ArrayList<Question> listQuestions;
 
     DatabaseReference databaseReferenceExam;
 
@@ -41,14 +44,14 @@ public class login extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                if (checkUser(id.getText().toString(),password.getText().toString())) {
+                if (checkUser(id.getText().toString(), password.getText().toString())) {
                     databaseReferenceExam = FirebaseDatabase.getInstance().getReference("Question");
                     databaseReferenceExam.addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(@NonNull DataSnapshot snapshot) {
                             for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                                ExamClass examClass = dataSnapshot.getValue(ExamClass.class);
-                                listQuestions.add(examClass);
+                                Question question = dataSnapshot.getValue(Question.class);
+                                listQuestions.add(question);
 
                             }
                             Intent exam = new Intent(login.this, exam.class);
@@ -61,7 +64,7 @@ public class login extends AppCompatActivity {
                         }
                     });
 
-                }else{
+                } else {
                     Toast.makeText(login.this, "User not found",
                             Toast.LENGTH_LONG).show();
                 }
@@ -71,13 +74,13 @@ public class login extends AppCompatActivity {
         });
     }
 
-    private boolean checkUser(String id,String password) {
-        for (LoginModel loginmodel:listUsers
-             ) {
-            if(loginmodel.getId().equals(id) && loginmodel.getPassword().equals(password)){
+    private boolean checkUser(String id, String password) {
+        for (User loginmodel : listUsers
+        ) {
+            if (loginmodel.getId().equals(id) && loginmodel.getPassword().equals(password)) {
                 return true;
             }
         }
-        return  false;
+        return false;
     }
 }

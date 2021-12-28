@@ -13,13 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyApplication1">
         <activity
-            android:name=".exam"
+            android:name=".controllers.exam"
             android:exported="false" />
         <activity
-            android:name=".login"
+            android:name=".controllers.login"
             android:exported="false" />
         <activity
-            android:name=".loading"
+            android:name=".controllers.loading"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

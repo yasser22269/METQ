@@ -1,11 +1,12 @@
-package com.example.myapplication1;
+package com.example.myapplication1.models;
 
-public class LoginModel {
-   private String id;
+public class User {
+    private String id;
     private String password;
 
 
-    public LoginModel(){}
+    public User() {
+    }
 
     public String getId() {
         return id;

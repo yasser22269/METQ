@@ -1,9 +1,10 @@
-package com.example.myapplication1;
+package com.example.myapplication1.controllers;
 
-import static com.example.myapplication1.login.listQuestions;
+import static com.example.myapplication1.controllers.login.listQuestions;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,53 +13,57 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.myapplication1.R;
+import com.example.myapplication1.models.Question;
+
 import java.util.ArrayList;
 import java.util.Collections;
 
 public class exam extends AppCompatActivity {
-     ArrayList<ExamClass> AllQuestionslist  ;
-        ExamClass examClass;
-        int index=0,AnswerCorrect=0;
-        String AnswerString,select;
-        TextView  card_question,answer1, answer2,answer3,answer4;
+    ArrayList<Question> AllQuestionslist;
+    Question question;
+    int index = 0, AnswerCorrect = 0;
+    String AnswerString, select;
+    TextView card_question, answer1, answer2, answer3, answer4;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exam);
 
         Hooks();
-        AllQuestionslist =listQuestions;
+        AllQuestionslist = listQuestions;
         Collections.shuffle(AllQuestionslist);
-        examClass = listQuestions.get(index);
+        question = listQuestions.get(index);
 
         setAllData();
 
-        Button next =  findViewById(R.id.next);
+        Button next = findViewById(R.id.next);
 
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(select == null){
+                if (select == null) {
                     Toast.makeText(exam.this, "Please answer this Question",
                             Toast.LENGTH_LONG).show();
-                }else{
-                    if(correctAnswerCount(select,AnswerString))
-                        AnswerCorrect ++;
+                } else {
+                    if (correctAnswerCount(select, AnswerString))
+                        AnswerCorrect++;
 
-                    if(listQuestions.size()-1 == index){
+                    if (listQuestions.size() - 1 == index) {
                         new AlertDialog.Builder(exam.this)
-                                .setMessage("result = " +AnswerCorrect)
+                                .setMessage("result = " + AnswerCorrect)
                                 .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int which) {
-                                        Intent intent = new Intent(exam.this,login.class);
+                                        Intent intent = new Intent(exam.this, login.class);
                                         startActivity(intent);
                                     }
                                 })
                                 .setIcon(android.R.drawable.ic_dialog_alert)
                                 .show();
-                    }else{
-                        index ++;
-                        examClass = listQuestions.get(index);
+                    } else {
+                        index++;
+                        question = listQuestions.get(index);
                         clearCheck();
                         setAllData();
 
@@ -113,28 +118,28 @@ public class exam extends AppCompatActivity {
     }
 
     private void hoverClick(TextView answer) {
-        if (answer== answer1) {
-                answer1.setBackgroundResource(R.color.colorAccent);
-                answer1.setTextColor(getResources().getColor(R.color.white));
+        if (answer == answer1) {
+            answer1.setBackgroundResource(R.color.colorAccent);
+            answer1.setTextColor(getResources().getColor(R.color.white));
         } else {
-                answer1.setBackgroundResource(R.color.colorSecondary);
-                answer1.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
+            answer1.setBackgroundResource(R.color.colorSecondary);
+            answer1.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
         }
-        if (answer== answer2) {
+        if (answer == answer2) {
             answer2.setBackgroundResource(R.color.colorAccent);
             answer2.setTextColor(getResources().getColor(R.color.white));
         } else {
             answer2.setBackgroundResource(R.color.colorSecondary);
             answer2.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
         }
-        if (answer== answer3) {
+        if (answer == answer3) {
             answer3.setBackgroundResource(R.color.colorAccent);
             answer3.setTextColor(getResources().getColor(R.color.white));
         } else {
             answer3.setBackgroundResource(R.color.colorSecondary);
             answer3.setTextColor(getResources().getColor(R.color.colorPrimaryDark));
         }
-        if (answer== answer4) {
+        if (answer == answer4) {
             answer4.setBackgroundResource(R.color.colorAccent);
             answer4.setTextColor(getResources().getColor(R.color.white));
         } else {
@@ -144,23 +149,23 @@ public class exam extends AppCompatActivity {
     }
 
 
-
     private void setAllData() {
-        card_question.setText(examClass.getQuestion());
-        answer1.setText(examClass.getAnswer1());
-        answer2.setText(examClass.getAnswer2());
-        answer3.setText(examClass.getAnswer3());
-        answer4.setText(examClass.getAnswer4());
-        AnswerString = examClass.getCorrectAnswer();
-        select =null;
+        card_question.setText(question.getQuestion());
+        answer1.setText(question.getAnswer1());
+        answer2.setText(question.getAnswer2());
+        answer3.setText(question.getAnswer3());
+        answer4.setText(question.getAnswer4());
+        AnswerString = question.getCorrectAnswer();
+        select = null;
     }
 
-    private boolean correctAnswerCount(String Answer,String AnswerString){
-        if(AnswerString.equals(Answer)){
+    private boolean correctAnswerCount(String Answer, String AnswerString) {
+        if (AnswerString.equals(Answer)) {
             return true;
         }
         return false;
     }
+
     private void Hooks() {
         card_question = findViewById(R.id.card_question);
         // set answer 1 with its id
