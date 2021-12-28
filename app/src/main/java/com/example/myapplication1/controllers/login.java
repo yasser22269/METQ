@@ -24,27 +24,28 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class login extends AppCompatActivity {
-    private Button button1;
-    private EditText id, password;
+    private Button btnLogin;
+    private EditText edtID, edtPassword;
     public static ArrayList<Question> listQuestions;
-
     DatabaseReference databaseReferenceExam;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
         listQuestions = new ArrayList<>();
 
 
-        button1 = findViewById(R.id.login);
-        id = findViewById(R.id.id);
-        password = findViewById(R.id.password);
-        button1.setOnClickListener(new View.OnClickListener() {
+        btnLogin = findViewById(R.id.login);
+        edtID = findViewById(R.id.id);
+        edtPassword = findViewById(R.id.password);
+
+        btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                if (checkUser(id.getText().toString(), password.getText().toString())) {
+                if (checkUser(edtID.getText().toString(), edtPassword.getText().toString())) {
                     databaseReferenceExam = FirebaseDatabase.getInstance().getReference("Question");
                     databaseReferenceExam.addValueEventListener(new ValueEventListener() {
                         @Override
@@ -52,7 +53,6 @@ public class login extends AppCompatActivity {
                             for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                                 Question question = dataSnapshot.getValue(Question.class);
                                 listQuestions.add(question);
-
                             }
                             Intent exam = new Intent(login.this, exam.class);
                             startActivity(exam);

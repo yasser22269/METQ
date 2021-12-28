@@ -31,7 +31,7 @@ public class exam extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_exam);
 
-        Hooks();
+        getIDsFromView();
         AllQuestionslist = listQuestions;
         Collections.shuffle(AllQuestionslist);
         question = listQuestions.get(index);
@@ -46,7 +46,8 @@ public class exam extends AppCompatActivity {
                 if (select == null) {
                     Toast.makeText(exam.this, "Please answer this Question",
                             Toast.LENGTH_LONG).show();
-                } else {
+                }
+                else {
                     if (correctAnswerCount(select, AnswerString))
                         AnswerCorrect++;
 
@@ -80,7 +81,6 @@ public class exam extends AppCompatActivity {
             public void onClick(View view) {
                 hoverClick(answer2);
                 select = (String) answer2.getText();
-
             }
 
         });
@@ -89,7 +89,6 @@ public class exam extends AppCompatActivity {
             public void onClick(View view) {
                 hoverClick(answer1);
                 select = (String) answer1.getText();
-
             }
 
         });
@@ -97,9 +96,7 @@ public class exam extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 hoverClick(answer3);
-
                 select = (String) answer3.getText();
-
             }
 
         });
@@ -107,9 +104,7 @@ public class exam extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 hoverClick(answer4);
-
                 select = (String) answer4.getText();
-
             }
 
         });
@@ -166,7 +161,7 @@ public class exam extends AppCompatActivity {
         return false;
     }
 
-    private void Hooks() {
+    private void getIDsFromView() {
         card_question = findViewById(R.id.card_question);
         // set answer 1 with its id
         answer1 = findViewById(R.id.answer1);

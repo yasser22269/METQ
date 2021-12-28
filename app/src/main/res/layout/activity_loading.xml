@@ -8,7 +8,6 @@
     android:layout_height="match_parent"
     android:background="@color/colorPrimary"
     tools:context=".controllers.loading"
-
     >
 
 
@@ -18,11 +17,6 @@
         android:layout_height="313dp"
         android:layout_centerInParent="true"
         android:background="@drawable/login_metq" />
-    <!--        android:layout_alignParentStart="true"-->
-<!--        android:layout_marginStart="81dp"-->
-<!--        android:layout_marginTop="72dp"-->
-<!--        android:layout_marginEnd="79dp"-->
-
 
     <ProgressBar
         android:layout_width="@dimen/_102sdp"

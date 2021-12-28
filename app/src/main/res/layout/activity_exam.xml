@@ -83,21 +83,6 @@
         app:layout_constraintTop_toBottomOf="@+id/answer3"
         tools:ignore="MissingConstraints" />
 
-<!--    <TextView
-        android:id="@+id/answer"
-        android:layout_width="180dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="60dp"
-        android:background="@color/colorAccent"
-        android:gravity="center|center_horizontal|center_vertical"
-        android:text="Next"
-        android:textColor="@color/white"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/answer4"
-        tools:ignore="MissingConstraints" />
--->
     <Button
         android:id="@+id/next"
         android:layout_width="180dp"

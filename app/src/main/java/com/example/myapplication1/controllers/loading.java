@@ -19,6 +19,7 @@ import java.util.ArrayList;
 
 
 public class loading extends AppCompatActivity {
+
     public static ArrayList<User> listUsers;
     DatabaseReference databaseReferenceUser;
 
@@ -34,7 +35,6 @@ public class loading extends AppCompatActivity {
                 for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
                     User user = dataSnapshot.getValue(User.class);
                     listUsers.add(user);
-
                 }
                 new Handler().postDelayed(new Runnable() {
                     @Override
