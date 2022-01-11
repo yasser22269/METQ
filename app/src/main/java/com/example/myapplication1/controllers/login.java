@@ -36,7 +36,6 @@ public class login extends AppCompatActivity {
 
         listQuestions = new ArrayList<>();
 
-
         btnLogin = findViewById(R.id.login);
         edtID = findViewById(R.id.id);
         edtPassword = findViewById(R.id.password);
@@ -57,7 +56,6 @@ public class login extends AppCompatActivity {
                             Intent exam = new Intent(login.this, exam.class);
                             startActivity(exam);
                         }
-
                         @Override
                         public void onCancelled(@NonNull DatabaseError error) {
 
